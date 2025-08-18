@@ -1,0 +1,968 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Reset and base styles 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Container and wrapper (Increased height and dynamic spacing) 
+.signup-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.signup-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form section (Increased padding and dynamic spacing) 
+.signup-form-container {
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-header {
+  text-align: center;
+  margin-bottom: 24px; /* Adjusted margin 
+}
+
+.logo-circle {
+  width: 60px;
+  height: 60px;
+  background: #2563eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.logo-circle i {
+  font-size: 28px;
+  color: white;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Form styles 
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 24px; /* Adjusted margin for better spacing 
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+label i {
+  margin-right: 6px;
+  color: #6b7280;
+  width: 16px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  background: white;
+  color: #111827;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Radio button styles for Role selection 
+.role-options {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  user-select: none;
+}
+
+.radio-label input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.radio-label input:checked {
+  border-color: #2563eb;
+  background: #2563eb;
+}
+
+.radio-label input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+
+/* Signup button 
+.signup-button {
+  width: 100%;
+  padding: 14px 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: auto; Pushes the button to the bottom, which can cause overflow 
+  margin-top: 16px; /* Use a fixed margin for consistent spacing 
+}
+
+.signup-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.signup-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.signup-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Login link 
+.login-link {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.login-link a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.login-link a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Image section 
+.signup-image-section {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.9)),
+    url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.image-overlay {
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+
+.image-overlay h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.image-overlay p {
+  font-size: 16px;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature i {
+  font-size: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.feature span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive design 
+@media (max-width: 968px) {
+  .signup-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .signup-image-section {
+    display: none;
+  }
+
+  .signup-form-container {
+    padding: 40px 32px;
+  }
+} */
+/* ------------------------------------------------------------------------- */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+ 
+/* Reset and base styles 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+ 
+/* Container and wrapper (Increased height and dynamic spacing) 
+.signup-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ 
+.signup-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-out;
+}
+ 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 
+/* Form section (Increased padding and dynamic spacing) 
+.signup-form-container {
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.brand-header {
+  text-align: center;
+  margin-bottom: 24px; /* Adjusted margin 
+}
+ 
+.logo-circle {
+  width: 60px;
+  height: 60px;
+  background: #2563eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+ 
+.logo-circle i {
+  font-size: 28px;
+  color: white;
+}
+ 
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+ 
+.tagline {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 400;
+}
+ 
+/* Form styles 
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.form-group {
+  margin-bottom: 24px; /* Adjusted margin for better spacing 
+}
+ 
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+ 
+label i {
+  margin-right: 6px;
+  color: #6b7280;
+  width: 16px;
+}
+ 
+.input-wrapper {
+  position: relative;
+}
+ 
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  background: white;
+  color: #111827;
+}
+ 
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+ 
+/* Radio button styles for Role selection 
+.role-options {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+ 
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  user-select: none;
+}
+ 
+.radio-label input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+ 
+.radio-label input:checked {
+  border-color: #2563eb;
+  background: #2563eb;
+}
+ 
+.radio-label input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+ 
+/* Signup button 
+.signup-button {
+  width: 100%;
+  padding: 14px 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: auto; Pushes the button to the bottom, which can cause overflow 
+  margin-top: 16px; /* Use a fixed margin for consistent spacing 
+}
+ 
+.signup-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+ 
+.signup-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+ 
+.signup-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+ 
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+ 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+ 
+/* Login link 
+.login-link {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+ 
+.login-link a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+ 
+.login-link a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+ 
+/* Image section 
+.signup-image-section {
+  --signup-bg-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.9)), var(--signup-bg-image);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+ 
+.image-overlay {
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+ 
+.image-overlay h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+ 
+.image-overlay p {
+  font-size: 16px;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+ 
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+ 
+.feature {
+  text-align: center;
+}
+ 
+.feature i {
+  font-size: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+ 
+.feature span {
+  font-size: 14px;
+  font-weight: 500;
+}
+ 
+/* Responsive design 
+@media (max-width: 968px) {
+  .signup-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+ 
+  .signup-image-section {
+    display: none;
+  }
+ 
+  .signup-form-container {
+    padding: 40px 32px;
+  }
+} */
+
+/* ---------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+ 
+:root {
+  --signup-bg-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+}
+ 
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--signup-bg-image) no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+ 
+/* Container and wrapper (Increased height and dynamic spacing) */
+.signup-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ 
+.signup-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-out;
+}
+ 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 
+/* Form section (Increased padding and dynamic spacing) */
+.signup-form-container {
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.brand-header {
+  text-align: center;
+  margin-bottom: 24px; /* Adjusted margin */
+}
+ 
+.logo-circle {
+  width: 60px;
+  height: 60px;
+  background: #2563eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+ 
+.logo-circle i {
+  font-size: 28px;
+  color: white;
+}
+ 
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+ 
+.tagline {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 400;
+}
+ 
+/* Form styles */
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.form-group {
+  margin-bottom: 24px; /* Adjusted margin for better spacing */
+}
+ 
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+ 
+label i {
+  margin-right: 6px;
+  color: #6b7280;
+  width: 16px;
+}
+ 
+.input-wrapper {
+  position: relative;
+}
+ 
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  background: white;
+  color: #111827;
+}
+ 
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+ 
+/* Radio button styles for Role selection */
+.role-options {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+ 
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  user-select: none;
+}
+ 
+.radio-label input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+ 
+.radio-label input:checked {
+  border-color: #2563eb;
+  background: #2563eb;
+}
+ 
+.radio-label input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+ 
+/* Signup button */
+.signup-button {
+  width: 100%;
+  padding: 14px 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: auto; Pushes the button to the bottom, which can cause overflow */
+  margin-top: 16px; /* Use a fixed margin for consistent spacing */
+}
+ 
+.signup-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+ 
+.signup-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+ 
+.signup-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+ 
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+ 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+ 
+/* Login link */
+.login-link {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+ 
+.login-link a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+ 
+.login-link a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+ 
+/* Image section */
+.signup-image-section {
+  background: var(--signup-bg-image);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+ 
+.image-overlay {
+  text-align: center;
+  color: black;
+  padding: 40px;
+}
+ 
+.image-overlay h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+ 
+.image-overlay p {
+  font-size: 16px;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+ 
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+ 
+.feature {
+  text-align: center;
+}
+ 
+.feature i {
+  font-size: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+ 
+.feature span {
+  font-size: 14px;
+  font-weight: 500;
+}
+ 
+/* Responsive design */
+@media (max-width: 968px) {
+  .signup-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+ 
+  .signup-image-section {
+    display: none;
+  }
+ 
+  .signup-form-container {
+    padding: 40px 32px;
+  }
+}
